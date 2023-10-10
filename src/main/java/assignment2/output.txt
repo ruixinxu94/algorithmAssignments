@@ -1,0 +1,14 @@
+Added (Fred,1) at depth 1.
+Added (Alan,2) at depth 2.
+Added (Adam,3) at depth 3.
+Added (Alice,4) at depth 3.
+Added (Thomas,5) at depth 2.
+Added (Hannah,6) at depth 3.
+Added (Sam,7) at depth 4.
+Not found: Ben.
+Found (Hannah,6) at depth 3.
+Found (Sam,7) at depth 4.
+Cannot delete: George.
+Deleted (Fred,1).
+Found (Hannah,6) at depth 1.
+Found (Sam,7) at depth 3.

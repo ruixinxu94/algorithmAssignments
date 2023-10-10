@@ -1,0 +1,14 @@
+ADD Fred,1
+ADD Alan,2
+ADD Adam,3
+ADD Alice,4
+ADD Thomas,5
+ADD Hannah,6
+ADD Sam,7
+SEARCH Ben
+SEARCH Hannah
+SEARCH Sam
+DELETE George
+DELETE Fred
+SEARCH Hannah
+SEARCH Sam
