@@ -6,7 +6,7 @@ import java.util.*;
 
 /**
  * @author ruixin xu
- * Accepts as input the shapes of a chain of matrices
+ * @apiNote Accepts as input the shapes of a chain of matrices
  * and calculates the most efficient sequence in which they can be multiplied as well as the minimum number
  * of scalar multiplications necessary.
  */
