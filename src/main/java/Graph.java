@@ -29,33 +29,52 @@ public class Graph {
         }
 
         int val;
-        List<Node> neighbours = new ArrayList<>();
+        Set<Node> neighbours = new LinkedHashSet<>();
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+            Node node = (Node) o;
+            return val == node.val;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(val);
+        }
     }
 
     public void dfs(Node startNode) {
         if (startNode == null) {
             return;
         }
-        Set<Node> visited = new HashSet<>();
-        dfsHelper(startNode, visited);
-    }
 
-    private void dfsHelper(Node node, Set<Node> visited) {
-        visited.add(node);
-        for (Node neighbour : node.neighbours) {
-            if (!visited.contains(neighbour)) {
-                int[] arr = new int[2];
-                arr[0] = node.val;
-                arr[1] = neighbour.val;
-                dfsResult.add(arr);
-                dfsHelper(neighbour, visited);
+        Set<Node> visited = new HashSet<>();
+        Stack<Node> stack = new Stack<>();
+        stack.push(startNode);
+
+        while (!stack.isEmpty()) {
+            Node currentNode = stack.pop();
+
+            if (!visited.contains(currentNode)) {
+                visited.add(currentNode);
+
+                // Add edges to the dfsResult list
+                for (Node neighbour : currentNode.neighbours) {
+                    if (!visited.contains(neighbour)) {
+                        int[] arr = new int[2];
+                        arr[0] = Math.min(neighbour.val, currentNode.val);
+                        arr[1] = Math.max(neighbour.val, currentNode.val);
+                        dfsResult.add(arr);
+                        stack.push(neighbour);
+                    }
+                }
             }
         }
     }
-
-
-
-
 
     void bfs(Node startNode) {
         if (startNode == null) {
